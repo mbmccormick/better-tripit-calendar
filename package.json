@@ -1,0 +1,10 @@
+{
+    "name": "better-tripit-calendar",
+    "main": "index.js",
+    "dependencies": {
+        "express": "^4.16.2",
+        "oauth": "^0.9.15",
+        "moment-timezone": "^0.5.13",
+        "ical-generator": "^0.2.10"
+    }
+}
