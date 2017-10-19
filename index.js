@@ -21,7 +21,7 @@ var calendar = ical({
     ttl: 0
 });
 
-app.get('/feed.ics', function (req, res) {
+app.get("/" + process.env.FEED_URL_PATH + "/feed.ics", function (req, res) {
     client.get("https://api.tripit.com/v1/list/trip/format/json?past=false&include_objects=true&page_size=50", process.env.TRIPIT_ACCESS_TOKEN, process.env.TRIPIT_TOKEN_SECRET, function (err, body, data) {
         if (err) {
             console.error(err);
