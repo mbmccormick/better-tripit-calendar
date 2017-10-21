@@ -136,8 +136,8 @@ function processEvents(data) {
                                 moment(friendlyDateTime(segment.StartDateTime)).format("h:mma") + " " + moment().tz(segment.StartDateTime.timezone).format("z") + "\n" +
                                 "\n" +
                                 "Arrive: " + segment.end_city_name + " (" + segment.end_airport_code + ")\n" +
-                                moment(friendlyDateTime(segment.EndDateTime)).add(diff, "minutes").format("dddd, MMMM Do") + "\n" +
-                                moment(friendlyDateTime(segment.EndDateTime)).add(diff, "minutes").format("h:mma") + " " + moment().tz(segment.EndDateTime.timezone).format("z") + "\n",
+                                moment(friendlyDateTime(segment.EndDateTime)).format("dddd, MMMM Do") + "\n" +
+                                moment(friendlyDateTime(segment.EndDateTime)).format("h:mma") + " " + moment().tz(segment.EndDateTime.timezone).format("z") + "\n",
                             location: segment.start_city_name + " (" + segment.start_airport_code + ")",
                             geo: segment.start_airport_latitude + ";" + segment.start_airport_longitude
                         });
