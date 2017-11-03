@@ -124,7 +124,7 @@ function processEvents(data) {
                             start: friendlyDateTime(segment.StartDateTime),
                             end: moment(friendlyDateTime(segment.EndDateTime)).add(diff, "minutes").toDate(),
                             timezone: segment.StartDateTime.timezone,
-                            summary: segment.marketing_airline_code + segment.marketing_flight_number + " " + segment.start_airport_code + " to " + segment.end_airport_code,
+                            summary: segment.marketing_airline_code + " " + segment.marketing_flight_number + " " + segment.start_airport_code + " to " + segment.end_airport_code,
                             description: "https://www.tripit.com" + flight.relative_url + "\n" +
                                 "\n" +
                                 "Conf. # " + flight.supplier_conf_num + "\n" +
