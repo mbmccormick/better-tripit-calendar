@@ -78,8 +78,9 @@ function processEvents(data) {
 
                     calendar.createEvent({
                         uid: activity.id,
-                        start: moment.tz(friendlyDateTime(activity.StartDateTime), activity.StartDateTime.timezone).utc().toDate(),
-                        end: moment.tz(moment(friendlyDateTime(activity.EndDateTime)).add(diff, "minutes"), activity.StartDateTime.timezone).utc().toDate(),
+                        start: friendlyDateTime(activity.StartDateTime),
+                        end: moment(friendlyDateTime(activity.EndDateTime)).add(diff, "minutes").toDate(),
+                        timezone: activity.StartDateTime.timezone,
                         summary: activity.display_name,
                         description: "https://www.tripit.com" + activity.relative_url + "\n" +
                             "\n" +
@@ -120,8 +121,9 @@ function processEvents(data) {
 
                         calendar.createEvent({
                             uid: segment.id,
-                            start: moment.tz(friendlyDateTime(segment.StartDateTime), segment.StartDateTime.timezone).utc().toDate(),
-                            end: moment.tz(moment(friendlyDateTime(segment.EndDateTime)).add(diff, "minutes"), segment.StartDateTime.timezone).utc().toDate(),
+                            start: friendlyDateTime(segment.StartDateTime),
+                            end: moment(friendlyDateTime(segment.EndDateTime)).add(diff, "minutes").toDate(),
+                            timezone: segment.StartDateTime.timezone,
                             summary: segment.marketing_airline_code + " " + segment.marketing_flight_number + ": " + segment.start_airport_code + " to " + segment.end_airport_code,
                             description: "https://www.tripit.com" + flight.relative_url + "\n" +
                                 "\n" +
@@ -154,8 +156,9 @@ function processEvents(data) {
                 if (car.trip_id == trip.id) {
                     calendar.createEvent({
                         uid: car.id + "PickUp",
-                        start: moment.tz(friendlyDateTime(car.StartDateTime), car.StartDateTime.timezone).utc().toDate(),
-                        end: moment.tz(friendlyDateTime(car.StartDateTime, 1), car.StartDateTime.timezone).utc().toDate(),
+                        start: friendlyDateTime(car.StartDateTime),
+                        end: friendlyDateTime(car.StartDateTime, 1),
+                        timezone: car.StartDateTime.timezone,
                         summary: "Pick Up: " + car.display_name,
                         description: "https://www.tripit.com" + car.relative_url + "\n" +
                             "\n" +
@@ -178,8 +181,9 @@ function processEvents(data) {
 
                     calendar.createEvent({
                         uid: car.id + "DropOff",
-                        start: moment.tz(friendlyDateTime(car.EndDateTime), car.EndDateTime.timezone).utc().toDate(),
-                        end: moment.tz(friendlyDateTime(car.EndDateTime, 1), car.EndDateTime.timezone).utc().toDate(),
+                        start: friendlyDateTime(car.EndDateTime),
+                        end: friendlyDateTime(car.EndDateTime, 1),
+                        timezone: car.EndDateTime.timezone,
                         summary: "Drop Off: " + car.display_name,
                         description: "https://www.tripit.com" + car.relative_url + "\n" +
                             "\n" +
@@ -208,8 +212,9 @@ function processEvents(data) {
                 if (lodging.trip_id == trip.id) {
                     calendar.createEvent({
                         uid: lodging.id + "CheckIn",
-                        start: moment.tz(friendlyDateTime(lodging.StartDateTime), lodging.StartDateTime.timezone).utc().toDate(),
-                        end: moment.tz(friendlyDateTime(lodging.StartDateTime, 1), lodging.StartDateTime.timezone).utc().toDate(),
+                        start: friendlyDateTime(lodging.StartDateTime),
+                        end: friendlyDateTime(lodging.StartDateTime, 1),
+                        timezone: lodging.StartDateTime.timezone,
                         summary: "Check In: " + lodging.display_name,
                         description: "https://www.tripit.com" + lodging.relative_url + "\n" +
                             "\n" +
@@ -230,8 +235,9 @@ function processEvents(data) {
 
                     calendar.createEvent({
                         uid: lodging.id + "CheckOut",
-                        start: moment.tz(friendlyDateTime(lodging.EndDateTime), lodging.EndDateTime.timezone).utc().toDate(),
-                        end: moment.tz(friendlyDateTime(lodging.EndDateTime, 1), lodging.EndDateTime.timezone).utc().toDate(),
+                        start: friendlyDateTime(lodging.EndDateTime),
+                        end: friendlyDateTime(lodging.EndDateTime, 1),
+                        timezone: lodging.EndDateTime.timezone,
                         summary: "Check Out: " + lodging.display_name,
                         description: "https://www.tripit.com" + lodging.relative_url + "\n" +
                             "\n" +
@@ -259,8 +265,9 @@ function processEvents(data) {
                 if (reservation.trip_id == trip.id) {
                     calendar.createEvent({
                         uid: reservation.id,
-                        start: moment.tz(friendlyDateTime(reservation.DateTime), reservation.DateTime.timezone).utc().toDate(),
-                        end: moment.tz(friendlyDateTime(reservation.DateTime, 1), reservation.DateTime.timezone).utc().toDate(),
+                        start: friendlyDateTime(reservation.DateTime),
+                        end: friendlyDateTime(reservation.DateTime, 1),
+                        timezone: reservation.DateTime.timezone,
                         summary: reservation.display_name,
                         description: "https://www.tripit.com" + reservation.relative_url + "\n" +
                             "\n" +
