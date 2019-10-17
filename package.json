@@ -2,9 +2,9 @@
     "name": "better-tripit-calendar",
     "main": "index.js",
     "dependencies": {
-        "express": "^4.16.2",
+        "express": "^4.17.1",
         "oauth": "^0.9.15",
-        "moment-timezone": "^0.5.13",
-        "ical-generator": "^0.2.10"
+        "moment-timezone": "^0.5.27",
+        "ical-generator": "^1.8.1"
     }
 }
