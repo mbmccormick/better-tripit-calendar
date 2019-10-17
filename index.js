@@ -332,7 +332,7 @@ function friendlyLocation(address, object) {
 
 function friendlyGeo(address, object) {
     if (address) {
-        return address.address;
+        return null; // no longer supported, see https://github.com/sebbo2002/ical-generator#geostringobject-geo
     }
 
     if (object.Address) {
